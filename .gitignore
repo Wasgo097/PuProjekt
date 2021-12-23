@@ -1,0 +1,6 @@
+.vs/
+bin/
+intermediate/
+UserApp/bin
+UserApp/obj
+lib/
