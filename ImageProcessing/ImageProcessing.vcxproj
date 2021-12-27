@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ImagePreprocessor.h" />
     <ClInclude Include="ImageSource.h" />
     <ClInclude Include="MathLibrary.h" />
+    <ClInclude Include="PCH.h" />
+    <ClInclude Include="ProcessingSettings.h" />
     <ClInclude Include="ProjectAPI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ImagePreprrocessor.cpp" />
     <ClCompile Include="ImageSource.cpp" />
     <ClCompile Include="MathLibrary.cpp" />
     <ClCompile Include="ProjectAPI.cpp" />

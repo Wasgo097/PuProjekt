@@ -24,6 +24,15 @@
     <ClInclude Include="ImageSource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ImagePreprocessor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PCH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ProcessingSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MathLibrary.cpp">
@@ -33,6 +42,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ImageSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImagePreprrocessor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
