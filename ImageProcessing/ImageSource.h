@@ -4,5 +4,5 @@
 class ImageSource
 {
 public:
-	std::optional<cv::Mat> GetImage(const char * path);
+	std::optional<cv::Mat> GetImage(const char * path)const;
 };

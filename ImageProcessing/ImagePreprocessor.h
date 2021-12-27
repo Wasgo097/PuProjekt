@@ -4,10 +4,10 @@
 class ImagePreprocessor
 {
 public:
-	ImagePreprocessor(cv::Mat InMat, ProcessingSettings settings);
+	ImagePreprocessor(cv::Mat InMat, PreprocessingSettings settings);
 	cv::Mat GetPreprocessedImage()const;
 private:
 	cv::Mat _inputmat;
-	ProcessingSettings _inputsettings;
+	PreprocessingSettings _inputsettings;
 };
 

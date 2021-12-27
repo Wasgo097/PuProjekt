@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DebugDrawing.h" />
     <ClInclude Include="ImagePreprocessor.h" />
+    <ClInclude Include="ImageProcessor.h" />
     <ClInclude Include="ImageSource.h" />
     <ClInclude Include="MathLibrary.h" />
     <ClInclude Include="PCH.h" />
@@ -28,8 +30,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ImagePreprrocessor.cpp" />
+    <ClCompile Include="ImageProcessor.cpp" />
     <ClCompile Include="ImageSource.cpp" />
     <ClCompile Include="MathLibrary.cpp" />
+    <ClCompile Include="ProcessingSettings.cpp" />
     <ClCompile Include="ProjectAPI.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
