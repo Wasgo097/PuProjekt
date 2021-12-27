@@ -6,10 +6,11 @@
 #include "FormatConverter.h"
 #include "PCH.h"
 #include "DebugDrawing.h"
+#pragma warning(disable : 4996)
 //1- dec 
 //2 - hex
 //other - bin
-const char* GetCodeFromImg(const char* ImagePath,int codetype)
+void GetCodeFromImg(const char* ImagePath,int codetype, char* Result)
 {
 	ImageSource source;
 	auto original_img = source.GetImage(ImagePath);
@@ -31,9 +32,7 @@ const char* GetCodeFromImg(const char* ImagePath,int codetype)
 				result = FormatConverter::BinToDec(result);
 			else if (codetype == 2)
 				result == FormatConverter::BinToHex(result);
-			auto result_str = result.c_str();
-			return result_str;
+			strcpy(Result, result.c_str());
 		}
 	}
-	return "null";
 }

@@ -1,2 +1,2 @@
 #pragma once
-extern "C" __declspec(dllexport) const char* GetCodeFromImg(const char * ImagePath, int codetype);
+extern "C" __declspec(dllexport) void GetCodeFromImg(const char * ImagePath, int codetype,char * Result);
