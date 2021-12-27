@@ -11,12 +11,6 @@ cv::Mat ImageProcessor::GetProcessedImage() const
 	cv::findContours(_preprocessedimage, contours, hierarchy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 	int lowest_contour_index = -1;
 	int lowest_contour_y = -1;
-	/*for (int i = 0; i < contours.size(); i++) {
-		int area = cv::contourArea(contours[i]);
-		std::cout << area << std::endl;
-		if(area<100)
-			cv::drawContours(result, contours, i, cv::Scalar(255, 0, 255), 1);
-	}*/
 	for (int i = 0; i < contours.size();i++) {
 		auto& contour = contours[i];
 		auto rect=cv::boundingRect(contour);
@@ -31,9 +25,9 @@ cv::Mat ImageProcessor::GetProcessedImage() const
 			continue;
 		for (const auto& point : contours[i])
 			allpoints.push_back(point);
-#ifdef  PROCESSING_DRAW
-		//cv::drawContours(result, contours, i, cv::Scalar(255, 0, 255), 1);
-#endif 
+/*#ifdef  PROCESSING_DRAW
+		cv::drawContours(result, contours, i, cv::Scalar(255, 0, 255), 1);
+#endif*/ 
 	}
 	auto finalroi = cv::boundingRect(allpoints);
 	result = result(finalroi);
@@ -42,6 +36,6 @@ cv::Mat ImageProcessor::GetProcessedImage() const
 	cv::imshow("processingimg", result);
 	cv::waitKey(0);
 #endif 
-
+	cv::cvtColor(result, result, cv::COLOR_BGR2GRAY);
 	return result;
 }

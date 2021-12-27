@@ -20,6 +20,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DebugDrawing.h" />
+    <ClInclude Include="FormatConverter.h" />
+    <ClInclude Include="ImageConverter.h" />
     <ClInclude Include="ImagePreprocessor.h" />
     <ClInclude Include="ImageProcessor.h" />
     <ClInclude Include="ImageSource.h" />
@@ -29,6 +31,8 @@
     <ClInclude Include="ProjectAPI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FormatConverter.cpp" />
+    <ClCompile Include="ImageConverter.cpp" />
     <ClCompile Include="ImagePreprrocessor.cpp" />
     <ClCompile Include="ImageProcessor.cpp" />
     <ClCompile Include="ImageSource.cpp" />

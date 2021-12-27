@@ -7,4 +7,7 @@
 #include <vector>
 #include <list>
 #include <string>
+#include <sstream>
 #include <utility>
+#include <memory>
+#include <bitset>

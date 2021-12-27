@@ -2,16 +2,15 @@
 #include "ImageSource.h"
 #include "ImagePreprocessor.h"
 #include "ImageProcessor.h"
+#include "ImageConverter.h"
+#include "FormatConverter.h"
 #include "PCH.h"
-void InitApi()
+#include "DebugDrawing.h"
+//1- dec 
+//2 - hex
+//other - bin
+const char* GetCodeFromImg(const char* ImagePath,int codetype)
 {
-	ApiInitialized = true;
-}
-
-const char* GetCodeFromImg(const char* ImagePath)
-{
-	if (ApiInitialized == false)
-		InitApi();
 	ImageSource source;
 	auto original_img = source.GetImage(ImagePath);
 	if (original_img) {
@@ -21,7 +20,19 @@ const char* GetCodeFromImg(const char* ImagePath)
 		{
 			ImageProcessor processor(preprocessing_res,*original_img, ProcessingSettings());
 			auto processing_res = processor.GetProcessedImage();
-			return "result";
+#ifdef  FINAL_DRAW
+			//cv::resize(processing_res, processing_res, cv::Size(), 6.0, 6.0);
+			cv::imshow("final img", processing_res);
+			cv::waitKey(0);
+#endif 
+			ImageConverter converter;
+			auto result = converter.ConvertImageToCode(processing_res);
+			if (codetype == 1)
+				result = FormatConverter::BinToDec(result);
+			else if (codetype == 2)
+				result == FormatConverter::BinToHex(result);
+			auto result_str = result.c_str();
+			return result_str;
 		}
 	}
 	return "null";
