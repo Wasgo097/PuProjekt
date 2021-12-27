@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ImageSource.h" />
     <ClInclude Include="MathLibrary.h" />
+    <ClInclude Include="ProjectAPI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ImageSource.cpp" />
     <ClCompile Include="MathLibrary.cpp" />
+    <ClCompile Include="ProjectAPI.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

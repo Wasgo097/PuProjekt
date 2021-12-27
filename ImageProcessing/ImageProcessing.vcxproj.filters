@@ -18,9 +18,21 @@
     <ClInclude Include="MathLibrary.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ProjectAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MathLibrary.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjectAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageSource.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
