@@ -25,14 +25,18 @@ cv::Mat ImageProcessor::GetProcessedImage() const
 			lowest_contour_index = i;
 		}
 	}
-	std::vector<cv::Point> _allpoints;
+	std::vector<cv::Point> allpoints;
 	for (int i = 0; i < contours.size(); i++) {
 		if (i == lowest_contour_index)
 			continue;
+		for (const auto& point : contours[i])
+			allpoints.push_back(point);
 #ifdef  PROCESSING_DRAW
-		cv::drawContours(result, contours, i, cv::Scalar(255, 0, 255), 1);
+		//cv::drawContours(result, contours, i, cv::Scalar(255, 0, 255), 1);
 #endif 
 	}
+	auto finalroi = cv::boundingRect(allpoints);
+	result = result(finalroi);
 #ifdef  PROCESSING_DRAW
 	cv::resize(result, result, cv::Size(), 3.0, 3.0);
 	cv::imshow("processingimg", result);
