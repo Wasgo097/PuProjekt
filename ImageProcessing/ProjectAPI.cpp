@@ -27,11 +27,11 @@ void GetCodeFromImg(const char* ImagePath,int codetype, char* Result)
 			cv::waitKey(0);
 #endif 
 			ImageConverter converter;
-			auto result = converter.ConvertImageToCode(processing_res);
-			if (codetype == 1)
+			std::string result = converter.ConvertImageToCode(processing_res);
+			/*if (codetype == 1)
 				result = FormatConverter::BinToDec(result);
 			else if (codetype == 2)
-				result == FormatConverter::BinToHex(result);
+				result == FormatConverter::BinToHex(result);*/
 			strcpy(Result, result.c_str());
 		}
 	}
