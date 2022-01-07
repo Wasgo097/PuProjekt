@@ -14,7 +14,7 @@ namespace UserApp.Model
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite($"Data Source = d:\\programowanie\\PuProjekt\\PuProjekt\\UserApp\\Database\\database.db");
+            optionsBuilder.UseSqlite($"Data Source = d:\\programowanie\\PuProjekt\\UserApp\\Database\\database.db");
         }
     }
 }
