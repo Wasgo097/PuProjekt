@@ -27,11 +27,11 @@ namespace UserApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DllWrapper.fibonacci_init(1, 1);
-            while (DllWrapper.fibonacci_next())
-            {
-                Debug.Content = DllWrapper.fibonacci_current();
-            }
+            //DllWrapper.fibonacci_init(1, 1);
+            //while (DllWrapper.fibonacci_next())
+            //{
+            //    Debug.Content = DllWrapper.fibonacci_current();
+            //}
         }
     }
 }
