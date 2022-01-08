@@ -21,5 +21,10 @@ namespace UserApp.Model
 
         [Column(TypeName = "money")]
         public decimal ProductPrice { get; set; }
+
+        public override string ToString()
+        {
+            return this.ProductName + " : " + this.ProductPrice + " zł";
+        }
     }
 }

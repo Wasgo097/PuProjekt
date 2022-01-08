@@ -72,21 +72,21 @@
     <Border Background="#FF455BEE" CornerRadius="25">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="220"/>
+                <ColumnDefinition Width="320"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="90"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image HorizontalAlignment="Left" Height="60" Width="60" Margin="10" VerticalAlignment="Top" Source="/kasa.png" Grid.Column="0" Grid.Row="0"/>
-            <TextBlock Text="PalPak" FontSize="60" Foreground="Black" Grid.Column="0" Margin="70,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Agency FB"/>
+            <Image HorizontalAlignment="Left" Height="60" Width="60" Margin="20,10" VerticalAlignment="Top" Source="/kasa.png" Grid.Column="0" Grid.Row="0"/>
+            <TextBlock Text="PalPak" FontSize="60" Foreground="Black" Grid.Column="0" Margin="80,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Agency FB"/>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
-                <TextBlock HorizontalAlignment="Left" Text="Lista zakupów" FontSize="40" FontFamily="Agency FB"/>
-                <ListView Name="ltv_basket" Width="220" Height="360" Background="White"/>
-                <TextBlock HorizontalAlignment="Left" Text="Podsumowanie" FontSize="40" FontFamily="Agency FB"/>
-                <Label HorizontalAlignment="Right" Content="213,70 zł" FontSize="40" FontFamily="Agency FB"/>
+                <TextBlock HorizontalAlignment="Left" Text="Lista zakupów" FontSize="40" FontFamily="Agency FB" Margin="20,0,0,0"/>
+                <ListView Name="ltv_basket" Width="300" Height="360" Background="White" Margin="20,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Text="Podsumowanie" FontSize="40" FontFamily="Agency FB" Margin="20,0,0,0"/>
+                <Label Name="lbl_sumMoney"  HorizontalAlignment="Right" Content="0,00 zł" FontSize="40" FontFamily="Agency FB"/>
             </StackPanel>
 
             <Button Style="{DynamicResource ButtonStyle1}" Name="btn_reset" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="10,10,80,10" Width="70" Height="70" BorderBrush="{x:Null}" Click="btn_reset_Click">
@@ -101,9 +101,9 @@
                 </Button.Background>
             </Button>
 
-            <Button Name="btn_buy" Content="Zapłać" Grid.Column="1" Margin="470,410,10,10" Grid.Row="1" FontSize="60" FontFamily="Agency FB" Click="btn_buy_Click"/>
+            <Button Name="btn_buy" Content="Zapłać" Grid.Column="1" Margin="360,410,20,10" Grid.Row="1" FontSize="60" FontFamily="Agency FB" Click="btn_buy_Click"/>
 
-            <Border CornerRadius="25" Grid.Column="1" Grid.Row="1" Margin="100,55,100,145" BorderBrush="Black" BorderThickness="5">
+            <Border CornerRadius="25" Grid.Column="1" Grid.Row="1" Margin="80,55,80,145" BorderBrush="Black" BorderThickness="5">
                 <Button Style="{DynamicResource ButtonStyle1}" Name="btn_scan" Click="btn_scan_Click" BorderBrush="{x:Null}" Drop="btn_scan_Drop" AllowDrop="True">
                     <Button.Background>
                         <ImageBrush Stretch="Fill" ImageSource="/scanner.png" />
