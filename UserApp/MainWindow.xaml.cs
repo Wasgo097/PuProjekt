@@ -160,5 +160,10 @@ namespace UserApp
                 e.Effects = DragDropEffects.None;
             }
         }
+
+        private void grd_WindowBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

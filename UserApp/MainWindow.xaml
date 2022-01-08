@@ -79,8 +79,11 @@
                 <RowDefinition Height="90"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image HorizontalAlignment="Left" Height="60" Width="60" Margin="20,10" VerticalAlignment="Top" Source="/kasa.png" Grid.Column="0" Grid.Row="0"/>
-            <TextBlock Text="PalPak" FontSize="60" Foreground="Black" Grid.Column="0" Margin="80,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Agency FB"/>
+
+            <Grid Grid.Column="0" Grid.Row="0" Name="grd_WindowBar" MouseDown="grd_WindowBar_MouseDown">
+                <Image HorizontalAlignment="Left" Height="60" Width="60" Margin="20,15" VerticalAlignment="Top" Source="/kasa.png"/>
+                <TextBlock Text="PalPak" FontSize="60" Foreground="Black" Grid.Column="0" Margin="80,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Agency FB"/>
+            </Grid>
 
             <StackPanel Grid.Row="1" Grid.Column="0">
                 <TextBlock HorizontalAlignment="Left" Text="Lista zakupów" FontSize="40" FontFamily="Agency FB" Margin="20,0,0,0"/>
