@@ -36,7 +36,7 @@ namespace UserApp
             ltv_basket.ItemsSource = productsList;
             //SQL initial start data
             //sqlConnection.Open();
-            //SqliteCommand sqlCommand = new SqliteCommand("INSERT INTO Products VALUES(6,'Chińska zupka błyskawiczna 150g','111001100011000000011110001111100110001111110011100111110011100000011111001101111',3.99)", sqlConnection);
+            //SqliteCommand sqlCommand = new SqliteCommand("INSERT INTO Products VALUES(15,'Watykańska kremówka święta 500g','111100110001111100001111100000010011110111111100001100100001111100110011100000110011111001111000001100000001001111000110011111001111000001101111110000011110111100000111110011001110',21.37)", sqlConnection);
             //var result = sqlCommand.ExecuteNonQuery();
             //sqlConnection.Close();
         }
