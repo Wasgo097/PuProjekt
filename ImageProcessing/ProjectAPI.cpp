@@ -3,13 +3,9 @@
 #include "ImagePreprocessor.h"
 #include "ImageProcessor.h"
 #include "ImageConverter.h"
-#include "FormatConverter.h"
 #include "PCH.h"
 #include "DebugDrawing.h"
 #pragma warning(disable : 4996)
-//1- dec 
-//2 - hex
-//other - bin
 void GetCodeFromImg(const char* ImagePath,int codetype, char* Result)
 {
 	ImageSource source;
@@ -28,10 +24,6 @@ void GetCodeFromImg(const char* ImagePath,int codetype, char* Result)
 #endif 
 			ImageConverter converter;
 			std::string result = converter.ConvertImageToCode(processing_res);
-			/*if (codetype == 1)
-				result = FormatConverter::BinToDec(result);
-			else if (codetype == 2)
-				result == FormatConverter::BinToHex(result);*/
 			strcpy(Result, result.c_str());
 		}
 	}
