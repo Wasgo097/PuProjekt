@@ -5,9 +5,118 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UserApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Height="600" 
+        Width="920"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true" Border.CornerRadius="25">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <!--<Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.MouseOver.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.MouseOver.Border}"/>
+                            </Trigger>-->
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Pressed.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Pressed.Border}"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Border Background="#FF455BEE" CornerRadius="25">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="320"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0" Name="grd_WindowBar" MouseDown="grd_WindowBar_MouseDown">
+                <Image HorizontalAlignment="Left" Height="60" Width="60" Margin="20,15" VerticalAlignment="Top" Source="/kasa.png"/>
+                <TextBlock Text="PalPak" FontSize="60" Foreground="Black" Grid.Column="0" Margin="80,10,10,10" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="Agency FB"/>
+            </Grid>
+
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <TextBlock HorizontalAlignment="Left" Text="Lista zakupów" FontSize="40" FontFamily="Agency FB" Margin="20,0,0,0"/>
+                <ListView Name="ltv_basket" Width="300" Height="360" Background="White" Margin="20,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Text="Podsumowanie" FontSize="40" FontFamily="Agency FB" Margin="20,0,0,0"/>
+                <Label Name="lbl_sumMoney"  HorizontalAlignment="Right" Content="0,00 zł" FontSize="40" FontFamily="Agency FB"/>
+            </StackPanel>
+
+            <Button Style="{DynamicResource ButtonStyle1}" Name="btn_reset" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="10,10,80,10" Width="70" Height="70" BorderBrush="{x:Null}" Click="btn_reset_Click">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/reload.png" />
+                </Button.Background>
+            </Button>
+
+            <Button Style="{DynamicResource ButtonStyle1}" Name="btn_close" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" Margin="10" Width="60" Height="60" Click="btn_close_Click" BorderBrush="{x:Null}">
+                <Button.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/close.png"/>
+                </Button.Background>
+            </Button>
+
+            <Button Name="btn_buy" Content="Zapłać" Grid.Column="1" Margin="360,410,20,10" Grid.Row="1" FontSize="60" FontFamily="Agency FB" Click="btn_buy_Click"/>
+
+            <Border CornerRadius="25" Grid.Column="1" Grid.Row="1" Margin="80,55,80,145" BorderBrush="Black" BorderThickness="5">
+                <Button Style="{DynamicResource ButtonStyle1}" Name="btn_scan" Click="btn_scan_Click" BorderBrush="{x:Null}" Drop="btn_scan_Drop" AllowDrop="True">
+                    <Button.Background>
+                        <ImageBrush Stretch="Fill" ImageSource="/scanner.png" />
+                    </Button.Background>
+                </Button>
+            </Border>
+        </Grid>
+    </Border>
+    <!--<Grid>
         <Label x:Name="Debug" Content="Label" HorizontalAlignment="Left" Margin="190,131,0,0" VerticalAlignment="Top" Width="200"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="190,236,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-    </Grid>
+    </Grid>-->
 </Window>
